@@ -41,8 +41,7 @@ todo-list-app/
 
 ## 🌐 Live Demo
 
-(Add your deployed link here if you deploy on Netlify)
-
+https://shingaded70.github.io/To-Do-List-App/
 ---
 
 ## 📸 Screenshot
@@ -69,7 +68,7 @@ Feel free to fork this project and improve it!
 ## 📬 Contact
 
 - Name: Dhiraj Shingade
-- GitHub: https://github.com/YOUR-USERNAME
+- GitHub: https://github.com/shingaded70
 
 ---
 
