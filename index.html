@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To-Do List App</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.container {
+    width: 320px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 8px;
+    width: 70%;
+}
+
+button {
+    padding: 8px;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    margin: 5px 0;
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>To-Do List</h1>
+
+    <div>
+        <input type="text" id="taskInput" placeholder="Enter a task...">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function renderTasks() {
+    const list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+        let li = document.createElement("li");
+        li.textContent = task.text;
+
+        if (task.completed) {
+            li.classList.add("completed");
+        }
+
+        li.onclick = () => toggleTask(index);
+
+        let delBtn = document.createElement("button");
+        delBtn.textContent = "X";
+
+        delBtn.onclick = (e) => {
+            e.stopPropagation();
+            deleteTask(index);
+        };
+
+        li.appendChild(delBtn);
+        list.appendChild(li);
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function addTask() {
+    let input = document.getElementById("taskInput");
+    let text = input.value.trim();
+
+    if (text === "") return;
+
+    tasks.push({ text: text, completed: false });
+    input.value = "";
+
+    renderTasks();
+}
+
+function toggleTask(index) {
+    tasks[index].completed = !tasks[index].completed;
+    renderTasks();
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    renderTasks();
+}
+
+renderTasks();
+</script>
+
+</body>
+</html>
