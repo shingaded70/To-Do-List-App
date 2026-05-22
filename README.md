@@ -46,8 +46,7 @@ https://shingaded70.github.io/To-Do-List-App/
 
 ## 📸 Screenshot
 
-(Add screenshot of your app here)
-
+Screenshot_2026-05-22-13-40-41-18_40deb401b9ffe8e1df2f1cc5ba480b12.jpg
 ---
 
 ## 📚 What I Learned
